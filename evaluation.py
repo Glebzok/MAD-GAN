@@ -1,7 +1,7 @@
 from tqdm import tqdm
 import numpy as np
 import torch
-torch.use_deterministic_algorithms(True)
+# torch.use_deterministic_algorithms(True)
 from anomaly_detection import detect_anomalies
 
 from sklearn.metrics import precision_recall_curve, precision_score, recall_score, f1_score

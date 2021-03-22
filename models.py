@@ -1,6 +1,6 @@
 import torch
 import torch.nn as nn
-torch.use_deterministic_algorithms(True)
+# torch.use_deterministic_algorithms(True)
 
 
 class LSTMGenerator(nn.Module):

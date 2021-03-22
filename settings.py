@@ -24,12 +24,12 @@ settings = {'kdd99': {
     "lstm_layers_d": 1,
 
     "batch_size": 500,
-    "num_epochs": 2,
+    "num_epochs": 100,
     "D_rounds": 1,
     "G_rounds": 3,
 
     "lambda": 0.5,
-    "tau": 0.5,
+    "tau": 1.25,
 
     "plot_generated": plot_1d_generated
 },
@@ -55,12 +55,12 @@ settings = {'kdd99': {
         "lstm_layers_d": 1,
 
         "batch_size": 500,
-        "num_epochs": 2,
+        "num_epochs": 100,
         "D_rounds": 1,
         "G_rounds": 10,
 
-        "lambda": 0.5,
-        "tau": 0.5,
+        "lambda": 0.33,
+        "tau": 0.95,
 
         "plot_generated": plot_1d_generated
     },
@@ -86,12 +86,12 @@ settings = {'kdd99': {
         "lstm_layers_d": 1,
 
         "batch_size": 500,
-        "num_epochs": 2,
+        "num_epochs": 100,
         "D_rounds": 1,
         "G_rounds": 10,
 
-        "lambda": 0.5,
-        "tau": 0.5,
+        "lambda": 1,
+        "tau": 1.8,
 
         "plot_generated": plot_1d_generated
     },

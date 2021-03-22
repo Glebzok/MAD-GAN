@@ -1,7 +1,7 @@
 from models import LSTMGenerator, LSTMDiscriminator, CNN_LSTMGenerator, CNN_LSTMDiscriminator, weights_init
 import torch
 import torch.nn as nn
-torch.use_deterministic_algorithms(True)
+# torch.use_deterministic_algorithms(True)
 
 from tqdm import tqdm
 import pandas as pd

@@ -8,4 +8,4 @@ if __name__ == '__main__':
     if not os.path.exists('./generation_results'):
         os.mkdir('./generation_results')
 
-    run_all('cpu')
+    run_all('cuda:0')
