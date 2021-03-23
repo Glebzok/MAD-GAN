@@ -6,7 +6,6 @@ import pandas as pd
 from evaluation import evaluate_anomaly_detection
 from anomaly_detection import covariance_similarity
 import torch
-import os
 
 def train_models(device):
     for dataset_name in ['kdd99', 'WADI', 'SWaT']:
@@ -43,11 +42,11 @@ def evaluate_models(device):
                 torch.optim.RMSprop, covariance_similarity, 1e-3, 100, train_params['latent_dim'],
                 lambd, None, train_params['normal_label'], device)
 
-            best_indices = [np.argmax(precision_vals),
-                            np.argmax(recall_vals),
+            best_indices = [np.argmax(precision_vals[precision_vals < 1]),
+                            np.argmax(recall_vals[recall_vals < 1]),
                             np.argmax(f1)]
 
-            thresholds.append(-1)
+            thresholds = np.hstack((thresholds, -1))
             metrics = np.vstack([precision_vals, recall_vals, f1, thresholds])
 
             metric_values[lambd] = [metrics[:, best_indices[0]],
@@ -58,6 +57,28 @@ def evaluate_models(device):
 
         with open('./experiments_results/metrics_' + dataset_name + '.pkl', 'wb') as f:
             pickle.dump(metric_values, f)
+
+    for dataset_name in ['kdd99', 'WADI', 'SWaT']:
+        with open('./experiments_results/metrics_' + dataset_name + '.pkl', 'rb') as f:
+            metrics = pickle.load(f)
+
+        for i in range(3):
+            lst = []
+            for lambd in metrics.keys():
+                lst.append(metrics[lambd][i][i])
+            best_index = np.nanargmax(lst)
+            best_lambda = lambdas[best_index]
+            best_tau = metrics[best_lambda][i][3]
+            best_metric = metrics[best_lambda][i][:-1]
+
+            print('{}: best lambda = {}, best tau = {}, \nprecision = {}, recall = {}, f-score = {}\n'.format(
+                dataset_name,
+                best_lambda,
+                best_tau,
+                best_metric[0],
+                best_metric[1],
+                best_metric[2]))
+        print('\n')
 
 
 def pca_components(device):
@@ -124,6 +145,6 @@ def seq_length(device):
 def run_all(device):
 
     train_models(device)
-    # evaluate_models(device)
+    evaluate_models(device)
     pca_components(device)
     seq_length(device)
