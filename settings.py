@@ -97,10 +97,10 @@ settings = {'kdd99': {
     },
     "MNIST": {
         "data": MnistDataset,
-        "normal_data_path": './data/MNIST_3_train.pkl',
-        "abnormal_data_path": './data/MNIST_3_test.pkl',
+        "normal_data_path": './data/MNIST_train_seq.pkl',
+        "abnormal_data_path": './data/MNIST_test_seq.pkl',
 
-        "seq_length": 3,
+        "seq_length": 1,
         "num_signals": None,
         "seq_step": None,
 
