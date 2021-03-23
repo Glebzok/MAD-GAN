@@ -28,8 +28,8 @@ settings = {'kdd99': {
     "D_rounds": 1,
     "G_rounds": 3,
 
-    "lambda": 0.5,
-    "tau": 1.25,
+    "lambda": 0.1,
+    "tau": 0.65,
 
     "plot_generated": plot_1d_generated
 },
@@ -57,10 +57,10 @@ settings = {'kdd99': {
         "batch_size": 500,
         "num_epochs": 100,
         "D_rounds": 1,
-        "G_rounds": 10,
+        "G_rounds": 3,
 
-        "lambda": 0.33,
-        "tau": 0.95,
+        "lambda": 0.1,
+        "tau": 0.65,
 
         "plot_generated": plot_1d_generated
     },
@@ -88,10 +88,10 @@ settings = {'kdd99': {
         "batch_size": 500,
         "num_epochs": 100,
         "D_rounds": 1,
-        "G_rounds": 10,
+        "G_rounds": 3,
 
-        "lambda": 1,
-        "tau": 1.8,
+        "lambda": 0.1,
+        "tau": 0.49,
 
         "plot_generated": plot_1d_generated
     },
