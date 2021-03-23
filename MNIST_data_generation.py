@@ -10,6 +10,7 @@ from torchvision import transforms
 
 from mnist_encoder import idx2onehot, IM_SIZE, CVAE, Encoder, Decoder
 
+
 def process_pair_xy(x, y):
     x = x.view(-1, 28 * 28)
     x = x.to(device)
