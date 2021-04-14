@@ -7,6 +7,8 @@ MAD-GAN architecture was reimplemented on PyTorch, paper experiments were reprod
 
 As a follow-up MAD-GAN implementation was modifies for working with image sequences, using addition CNN layers. Modified model showed 65% accuracy and 88% Precision on single number data (train dataset consist of one number, and test of this number + anomalies inside). Directions for future work are to tune the hyperparameters and model architecture for improving current results on image sequences and succeeding in processing all MNIST numbers data sequences.
 
+A more detailed description of the project could be found at Report.pdf
+
 ## Quickstart
 
 - Python3
